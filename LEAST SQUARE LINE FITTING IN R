@@ -1,0 +1,56 @@
+###First Create a vector By variable name X and Y###
+
+x=c(-6,-2,0,2,6) 
+y=c(7,5,3,2,0) 
+
+## finding summation of X^2 and X*Y
+
+for(i in 1:5)
+{
+x1=x^2
+y1=x*y
+}
+sum(x1)
+sum(y1)
+sum(x)
+sum(y)
+
+##Put in equation to find value of A and B and equation is given as (∑Nk=1Xk^2)*A+(∑Nk=1Xk)*B=∑Nk=1Xk*yk
+##(∑Nk=1Xk)*A+NB=∑Nk=1yk
+A=rbind(c(80,0),c(0,5))
+B=c(-48,17)
+solve(A,B)
+
+## Or by using function summary
+mod=lm(y~x)
+summary(mod)
+
+#### put value of A and B in the Equation Y=A*X + B
+Y=c()
+x=c(-6,-2,0,2,6) 
+for(i in 1:5)
+{
+Y[i]=(-0.6*x[i])+3.4
+}
+Y
+
+##############Also Find the Error between |Yk-f(Xk)|
+x=c(-6,-2,0,2,6) 
+y=c(7,5,3,2,0)
+error=c()
+for(i in 1:5)
+{
+error[i]=(Y[i]-y[i])
+}
+error
+
+##########Plot the graph
+plot(x,Y,type="l",main="Y VS X",col="red",lwd=3,xlab="X",ylab="Y")
+points(x,Y,pch=3,col="blue",lwd=3)
+lines(x,y,type="l",col="blue",lwd=3)
+points(x,y,pch=3,col="red",lwd=3)
+legend(locator(1),legend=c("Least Square Line","Given Data"),fill=c("red","blue"))
+
+
+
+
